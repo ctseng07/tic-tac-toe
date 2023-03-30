@@ -12,20 +12,41 @@
 
 <body>
     <header>
-        <h1>Tic Tac Toe</h1>
+        <div class="logo">
+            <img src="./img/logo.png" alt="">
+        </div>
+        <div class="userTurn">X O</div>
+        <div class="gameLevel">
+            <form action="" class="form">
+                <select name="levels" id="levels">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                    <option value="unbeatable">Unbeatable</option>
+                </select>
+            </form>
+        </div>
     </header>
 
     <div class="main">
         <div class="gameboard">
-            <div class="board" id="box1"></div>
-            <div class="board" id="box2"></div>
-            <div class="board" id="box3"></div>
-            <div class="board" id="box4"></div>
-            <div class="board" id="box5"></div>
-            <div class="board" id="box6"></div>
-            <div class="board" id="box7"></div>
-            <div class="board" id="box8"></div>
-            <div class="board" id="box9"></div>
+            <button class="board" id="box1"></button>
+            <button class="board" id="box2"></button>
+            <button class="board" id="box3"></button>
+            <button class="board" id="box4"></button>
+            <button class="board" id="box5"></button>
+            <button class="board" id="box6"></button>
+            <button class="board" id="box7"></button>
+            <button class="board" id="box8"></button>
+            <button class="board" id="box9"></button>
+        </div>
+        <div class="gameRestart">
+            <button></button>
+        </div>
+        <div class="gameResult">
+            <div class="player">0</div>
+            <div class="tie">0</div>
+            <div class="computer">0</div>
         </div>
     </div>
 </body>
