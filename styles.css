@@ -1,6 +1,8 @@
 * {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     background-color: rgb(97, 97, 97);
+    padding: 0;
+    margin: 0;
 }
 
 @font-face {
@@ -10,17 +12,21 @@
 
 /* @media (min-width: 56.25em); */
 
+html {
+    height: 100%;
+}
+
 body {
     display: grid;
     place-items: center;
+    height: 100%;
 }
 
 
 header {
-    position: fixed;
+    /* position: fixed; */
     top: .5rem;
     width: 100%;
-    height: max-content;
     padding: 10px;
     display: flex;
     justify-content: space-around;
@@ -67,4 +73,21 @@ img {
     width: 8rem;
     height: 2.6rem;
     cursor: pointer;
+}
+
+.gameboard {
+    width: 310px;
+    min-height: 310px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    overflow: hidden;
+    gap: 20px;
+    padding: 20px 5px;
+}
+
+.board {
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, .5);
 }
