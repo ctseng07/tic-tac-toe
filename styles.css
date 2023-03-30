@@ -1,5 +1,5 @@
 * {
-    /* border: 1px solid red; */
+    border: 1px solid red;
     background-color: rgb(97, 97, 97);
 }
 
@@ -8,9 +8,23 @@
     src: url(font/painted_lady/Painted\ Lady.otf);
 }
 
+/* @media (min-width: 56.25em); */
+
+body {
+    display: grid;
+    place-items: center;
+}
+
+
 header {
+    position: fixed;
+    top: .5rem;
+    width: 100%;
+    height: max-content;
+    padding: 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    gap: 1rem;
     align-items: center;
 }
 
@@ -20,10 +34,25 @@ img {
     height: 80px;
 }
 
-.userTurn {
+.userChoice {
     font-family: painted-lady;
-    font-size: 3em;
-    color: red;
+    font-size: 1.5em;
+    /* color: black; */
+    display: flex;
+    margin-left: 50px;
+}
+
+.playerX,
+.playerO {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 8rem;
+    height: 2.6rem;
+    margin: 8px;
+    cursor: pointer;
 }
 
 #levels {
@@ -35,11 +64,7 @@ img {
     background-color: rgb(97, 97, 97);
     border: 2px solid black;
     border-radius: 5px;
-    width: 12em;
-    height: 2.5rem;
+    width: 8rem;
+    height: 2.6rem;
     cursor: pointer;
 }
-
-/* select:not(:-internal-list-box) {
-    overflow: visible !important;
-} */
