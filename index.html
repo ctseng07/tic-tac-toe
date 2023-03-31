@@ -14,6 +14,8 @@
     <header>
         <div class="logo">
             <img src="./img/logo.png" alt="">
+            <!-- <div class="logo1">X</div>
+            <div class="logo2">O</div> -->
         </div>
         <div class="userChoice">
             <h5 class="userChoice-title">Pick One</h5>
@@ -33,8 +35,8 @@
             </form>
         </div>
     </header>
-
     <div class="main">
+        <div class="movesContainer"></div>
         <div class="gameboardContainer">
             <div class="gameboard">
                 <button class="board" id="box1"></button>
@@ -48,18 +50,18 @@
                 <button class="board" id="box9"></button>
             </div>
         </div>
-        <!-- <div class="gameRestart">
-            <button><img src="" alt=""></button>
-        </div> -->
+        <div class="gameRestart">
+            <button>RESTART</button>
+        </div>
         <div class="gameResult">
-            <div class="player">Player
-                <div class="score">0</div>
+            <div class="player">X
+                <div class="score" id="player">0</div>
             </div>
-            <div class="tie">Tie
-                <div class="score">0</div>
+            <div class="tie">TIES
+                <div class="score" id="tie">0</div>
             </div>
-            <div class="computer">A I
-                <div class="score">0</div>
+            <div class="computer">O
+                <div class="score" id="computer">0</div>
             </div>
         </div>
     </div>
