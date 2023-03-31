@@ -10,8 +10,6 @@
     src: url(font/painted_lady/Painted\ Lady.otf);
 }
 
-/* @media (min-width: 56.25em); */
-
 html {
     height: 100%;
 }
@@ -22,6 +20,7 @@ body {
     height: 100%;
 }
 
+/* HEADER */
 
 header {
     /* position: fixed; */
@@ -34,6 +33,8 @@ header {
     align-items: center;
 }
 
+/* LOGO */
+
 img {
     background-color: rgb(97, 97, 97);
     width: 80px;
@@ -42,12 +43,23 @@ img {
     border-radius: 10px;
 }
 
+/* PLAYER SELECTION */
+
 .userChoice {
     font-family: painted-lady;
     font-size: 1.5em;
     /* color: black; */
-    display: flex;
     margin-left: 50px;
+}
+
+.userChoice-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userSelect {
+    display: flex;
 }
 
 .playerX,
@@ -55,7 +67,10 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid black;
+    /* border: 2px solid black; */
+    font-family: painted-lady;
+    font-size: 2rem;
+    /* font-weight: bold; */
     border-radius: 10px;
     width: 8rem;
     height: 2.6rem;
@@ -64,6 +79,8 @@ img {
     cursor: pointer;
 }
 
+/* Difficulty menu*/
+
 #levels {
     outline: none;
     text-align: center;
@@ -71,13 +88,40 @@ img {
     font-size: 1em;
     color: black;
     background-color: rgb(97, 97, 97);
-    border: 2px solid black;
+    /* border: 2px solid black; */
     border-radius: 5px;
     width: 8rem;
     height: 2.6rem;
     cursor: pointer;
     box-shadow: 0 10px 10px rgba(0, 0, 0, .5);
 }
+
+/* .gameLevel {
+    position: relative;
+}
+
+.gameLevel select {
+    display: none;
+}
+
+.select-selected {
+    background-color: red;
+}
+
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border: white;
+}
+
+.select-selected.select-arrow-active:after {} */
+
+/* MAIN CONTENT */
 
 .gameboard {
     width: 310px;
@@ -102,3 +146,5 @@ img {
     align-items: center;
     justify-content: center;
 }
+
+/* SCORE CARD */
