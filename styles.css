@@ -1,5 +1,5 @@
 * {
-    /* border: 1px solid red; */
+    border: 1px solid red;
     background-color: rgb(97, 97, 97);
     padding: 0;
     margin: 0;
@@ -48,6 +48,35 @@ header {
     border-radius: 10px;
 }
 
+/* .logo {
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.logo1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: painted-lady;
+    font-size: 2rem;
+    width: 8rem;
+    height: 2.6rem;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, .5);
+    background-color: rgb(40, 39, 39);
+}
+
+.logo2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: painted-lady;
+    font-size: 2rem;
+    width: 8rem;
+    height: 2.6rem;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, .5);
+    background-color: darkred;
+} */
+
 /* PLAYER SELECTION */
 
 .userChoice {
@@ -65,6 +94,14 @@ header {
 
 .userSelect {
     display: flex;
+}
+
+.playerX:hover {
+    background-color: rgb(40, 39, 39);
+}
+
+.playerO:hover {
+    background-color: darkred;
 }
 
 .playerX,
@@ -128,10 +165,15 @@ header {
 
 /* MAIN CONTENT */
 
+.movesContainer {
+    height: 4rem;
+}
+
 .gameboardContainer {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .gameboard {
@@ -143,6 +185,7 @@ header {
     overflow: hidden;
     gap: 20px;
     padding: 20px 5px;
+
 }
 
 .board {
@@ -166,6 +209,43 @@ header {
 .player,
 .tie,
 .computer {
-    border: 1px solid black;
-    width: 5rem;
+
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 11rem;
+    height: 3.5rem;
+    font-family: painted-lady;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.player,
+#player {
+    background-color: rgb(40, 39, 39);
+    color: white;
+}
+
+.tie,
+#tie {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(208, 208, 208);
+}
+
+.computer,
+#computer {
+    background-color: darkred;
+
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-family: none;
+
 }
