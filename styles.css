@@ -20,6 +20,11 @@ body {
     height: 100%;
 }
 
+.main {
+    width: 100%;
+    height: 100%;
+}
+
 /* HEADER */
 
 header {
@@ -35,7 +40,7 @@ header {
 
 /* LOGO */
 
-img {
+.logo img {
     background-color: rgb(97, 97, 97);
     width: 80px;
     height: 80px;
@@ -123,6 +128,12 @@ img {
 
 /* MAIN CONTENT */
 
+.gameboardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .gameboard {
     width: 310px;
     min-height: 310px;
@@ -141,10 +152,20 @@ img {
     cursor: pointer;
 }
 
+.gameRestart {}
+
+/* SCORE CARD */
+
 .gameResult {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
 }
 
-/* SCORE CARD */
+.player,
+.tie,
+.computer {
+    border: 1px solid black;
+    width: 5rem;
+}
