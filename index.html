@@ -12,11 +12,16 @@
 
 <body>
     <header>
-        <div class="logo">
-            <img src="./img/logo.png" alt="">
-            <!-- <div class="logo1">X</div>
-            <div class="logo2">O</div> -->
+        <div class="gameRestart">
+            <button>
+                <img src="./img/restart.png" alt="">
+            </button>
         </div>
+        <!-- <div class="logo">
+            <img src="./img/logo.png" alt="">
+            <div class="logo1">X</div>
+            <div class="logo2">O</div>
+        </div> -->
         <div class="userChoice">
             <h5 class="userChoice-title">Pick One</h5>
             <div class="userSelect">
@@ -36,7 +41,7 @@
         </div>
     </header>
     <div class="main">
-        <div class="movesContainer"></div>
+        <div class="movesTracker"></div>
         <div class="gameboardContainer">
             <div class="gameboard">
                 <button class="board" id="box1"></button>
@@ -50,17 +55,17 @@
                 <button class="board" id="box9"></button>
             </div>
         </div>
-        <div class="gameRestart">
+        <!-- <div class="gameRestart">
             <button>RESTART</button>
-        </div>
+        </div> -->
         <div class="gameResult">
-            <div class="player">X
+            <div class="player"> TEAM X
                 <div class="score" id="player">0</div>
             </div>
             <div class="tie">TIES
                 <div class="score" id="tie">0</div>
             </div>
-            <div class="computer">O
+            <div class="computer">TEAM O
                 <div class="score" id="computer">0</div>
             </div>
         </div>
