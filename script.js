@@ -1,28 +1,30 @@
 //initialize game variables
-const squares = document.querySelectorAll(".board");
-let player = "X";
+const gameBoard = document.querySelectorAll(".board");
+
+let currentPlayer = "X";
 let moves = 0;
 let gameOver = false;
+let player1 = 0;
+let player2 = 0;
 
 // function to handle player moves
 function handleClick(e) {
     if (gameOver) return;
     if (e.target.textContent !== "") return;
 
-    e.target.textContent = player;
+    e.target.textContent = currentPlayer;
     moves++;
 
     if (checkForWinner()) {
         gameOver = true;
-        document.getElementById('winningMessage').innerText = player + ' wins!';
+        document.getElementById('winningMessage').innerText = currentPlayer + ' wins!';
+        updateScore();
     } else if (moves === 9) {
         gameOver = true;
         document.getElementById('winningMessage').innerText = "It's A Tie!";
     } else {
-        player = player === "X" ? "O" : "X";
+        currentPlayer = currentPlayer === "X" ? "O" : "X";
     }
-
-    console.log("clicked");
 }
 
 // function to check for a win
@@ -36,19 +38,29 @@ function checkForWinner() {
 
     return winningCombos.some((combo) => {
         return combo.every((index) => {
-            return squares[index].textContent === player;
+            return gameBoard[index].textContent === currentPlayer;
         });
     });
 }
 
 // add event listeners to each cell
 function startGame() {
-    squares.forEach((square) => {
+    gameBoard.forEach((square) => {
         square.addEventListener("click", handleClick);
     });
 };
 
 startGame();
+
+function updateScore() {
+    if (currentPlayer === "X") {
+        player1++;
+        document.getElementById('player').innerText = player1;
+    } else {
+        player2++;
+        document.getElementById('computer').innerText = player2;
+    }
+}
 
 // const playerX = "X"
 // const playerO = "O"
