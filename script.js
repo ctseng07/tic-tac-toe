@@ -19,6 +19,7 @@ function handleClick(e) {
         gameOver = true;
         document.getElementById('winningMessage').innerText = currentPlayer + ' wins!';
         updateScore();
+        restart();
     } else if (moves === 9) {
         gameOver = true;
         document.getElementById('winningMessage').innerText = "It's A Tie!";
@@ -52,6 +53,7 @@ function startGame() {
 
 startGame();
 
+// function to display score
 function updateScore() {
     if (currentPlayer === "X") {
         player1++;
@@ -60,8 +62,21 @@ function updateScore() {
         player2++;
         document.getElementById('computer').innerText = player2;
     }
+};
+
+// function to restart game after win
+function restart() {
+    setTimeout(() => {
+        gameBoard.forEach((square) => {
+            square.textContent = "";
+        });
+        currentPlayer = "X";
+        moves = 0;
+        gameOver = false;
+    }, 1000);
 }
 
+document.querySelector(".gameRestart").addEventListener("click", restart);
 // const playerX = "X"
 // const playerO = "O"
 // let currentPlayer = playerX
