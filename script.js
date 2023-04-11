@@ -1,11 +1,13 @@
-//initialize game variables
+// initialize game variables
 const gameBoard = document.querySelectorAll(".board");
+const restartBtn = document.querySelector(".gameRestart");
+let message = document.querySelector(".winning-message");
 
 let currentPlayer = "X";
 let moves = 0;
 let gameOver = false;
-let player1 = 0;
-let player2 = 0;
+let teamX = 0;
+let teamO = 0;
 
 // function to handle player moves
 function handleClick(e) {
@@ -17,12 +19,13 @@ function handleClick(e) {
 
     if (checkForWinner()) {
         gameOver = true;
-        document.getElementById('winningMessage').innerText = currentPlayer + ' wins!';
+        message.textContent = 'Team ' + currentPlayer + ' Wins!';
         updateScore();
         restart();
     } else if (moves === 9) {
         gameOver = true;
-        document.getElementById('winningMessage').innerText = "It's A Tie!";
+        message.textContent = "It's A Tie!";
+        restart();
     } else {
         currentPlayer = currentPlayer === "X" ? "O" : "X";
     }
@@ -56,11 +59,11 @@ startGame();
 // function to display score
 function updateScore() {
     if (currentPlayer === "X") {
-        player1++;
-        document.getElementById('player').innerText = player1;
+        teamX++;
+        document.getElementById('player').innerText = teamX;
     } else {
-        player2++;
-        document.getElementById('computer').innerText = player2;
+        teamO++;
+        document.getElementById('computer').innerText = teamO;
     }
 };
 
@@ -73,10 +76,11 @@ function restart() {
         currentPlayer = "X";
         moves = 0;
         gameOver = false;
-    }, 1000);
+        message.textContent = "";
+    }, 1100);
 }
 
-document.querySelector(".gameRestart").addEventListener("click", restart);
+restartBtn.addEventListener("click", restart);
 // const playerX = "X"
 // const playerO = "O"
 // let currentPlayer = playerX
