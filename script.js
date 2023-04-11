@@ -1,6 +1,8 @@
 // initialize game variables
 const gameBoard = document.querySelectorAll(".board");
 const restartBtn = document.querySelector(".gameRestart");
+const startButton = document.querySelector(".game-start");
+const menu = document.querySelector(".start-menu");
 let message = document.querySelector(".winning-message");
 let playerX = "X";
 let playerO = "O";
@@ -12,6 +14,12 @@ let gameOver = false;
 let teamX = 0;
 let teamO = 0;
 let backgroundColor = "aaa";
+
+// startButton.addEventListener("click", () => {
+//     menu.innerHTML = "gameBoard";
+// })
+
+
 
 // function to handle player moves
 function handleClick(e) {
@@ -91,11 +99,20 @@ restartBtn.addEventListener("click", restart);
 
 
 // player turn
-function playerTurn(playerX, playerO) {
-    const playerTurn = document.querySelector(".userSelect");
-    if (playerX) {
-        playerTurn.backgroundColor = "#aaa";
-    } else {
-        playerTurn.backgroundColor = "#bbb";
-    }
-}
+// function playerTurn(playerX, playerO) {
+//     const playerTurn = document.querySelector(".userSelect");
+//     if (playerX) {
+//         playerTurn.style.backgroundColor = "#aaa";
+//     } else {
+//         playerTurn.style.backgroundColor = "#bbb";
+//     }
+// }
+
+
+//PLAYER CHOICE SET BACKGROUND COLOR
+//FUNCTION TO SET DIFFICULTY
+//SET GAME ROUND TO 5
+//MODAL FOR GAMEWINNER
+//START BUTTON
+//ADD PLAYER INPUT NAME
+//ADD AI CHOICE
