@@ -1,6 +1,6 @@
 // initialize game variables
 const gameBoard = document.querySelectorAll(".board");
-const restartBtn = document.querySelector(".gameRestart");
+const restartBtn = document.querySelector(".restartBtn");
 const startButton = document.querySelector(".game-start");
 const menu = document.querySelector(".start-menu");
 let message = document.querySelector(".winning-message");
@@ -34,11 +34,11 @@ function handleClick(e) {
         gameOver = true;
         message.textContent = 'Team ' + currentPlayer + ' Wins!';
         updateScore();
-        restart();
+        // restart();
     } else if (moves === 9) {
         gameOver = true;
         message.textContent = "It's A Tie!";
-        restart();
+        // restart();
     } else {
         currentPlayer = currentPlayer === playerX ? playerO : playerX;
         backgroundColor = backgroundColor === "#282727" ? "#8b0000" : "#282727";
@@ -92,21 +92,10 @@ function restart() {
         moves = 0;
         gameOver = false;
         message.textContent = "";
-    }, 1100);
+    }, 100);
 }
 
 restartBtn.addEventListener("click", restart);
-
-
-// player turn
-// function playerTurn(playerX, playerO) {
-//     const playerTurn = document.querySelector(".userSelect");
-//     if (playerX) {
-//         playerTurn.style.backgroundColor = "#aaa";
-//     } else {
-//         playerTurn.style.backgroundColor = "#bbb";
-//     }
-// }
 
 
 //PLAYER CHOICE SET BACKGROUND COLOR
