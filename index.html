@@ -11,24 +11,29 @@
 </head>
 
 <body>
+    <!-- <div class="start-menu">
+        <h1 class="game-title">Tic Tac Toe</h1>
+        <button class="game-start">Start Game</button>
+    </div> -->
     <header>
-        <div class="gameRestart">
+        <!-- <div class="gameRestart">
             <button>
                 <img src="./img/restart.png" alt="">
             </button>
-        </div>
+        </div> -->
         <!-- <div class="logo">
             <img src="./img/logo.png" alt="">
             <div class="logo1">X</div>
             <div class="logo2">O</div>
         </div> -->
-        <div class="userChoice">
+        <!-- <div class="userChoice">
             <h5 class="userChoice-title">Pick One</h5>
             <div class="userSelect">
                 <button class="playerX">X</button>
                 <button class="playerO">O</button>
             </div>
-        </div>
+        </div> -->
+        <div class="game-title">Tic Tac Toe</div>
         <div class="gameLevel">
             <form action="" class="form">
                 <select name="levels" id="levels">
@@ -42,8 +47,10 @@
     </header>
     <div class="main">
         <div class="winning-message" id="winningMessage"></div>
-        <div data-winning-message-text></div>
         <div class="gameboardContainer">
+            <div class="player"> TEAM X
+                <div class="score" id="player">0</div>
+            </div>
             <div class="gameboard">
                 <button class="board" id="box"></button>
                 <button class="board" id="box"></button>
@@ -55,18 +62,21 @@
                 <button class="board" id="box"></button>
                 <button class="board" id="box"></button>
             </div>
-        </div>
-
-        <div class="gameResult">
-            <div class="player"> TEAM X
-                <div class="score" id="player">0</div>
-            </div>
-            <div class="tie">TIES
-                <div class="score" id="tie">0</div>
-            </div>
             <div class="computer">TEAM O
                 <div class="score" id="computer">0</div>
             </div>
+        </div>
+
+        <div class="gameResult">
+            <!-- <div class="player"> TEAM X
+                <div class="score" id="player">0</div>
+            </div> -->
+            <div class="tie">PLAY AGAIN
+                <!-- <div class="score" id="tie">0</div> -->
+            </div>
+            <!-- <div class="computer">TEAM O
+                <div class="score" id="computer">0</div>
+            </div> -->
         </div>
     </div>
 </body>
