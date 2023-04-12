@@ -1,9 +1,11 @@
 // initialize game variables
 const gameBoard = document.querySelectorAll(".board");
 const restartBtn = document.querySelector(".restartBtn");
-const startButton = document.querySelector(".game-start");
+const title = document.querySelector("h1");
+const startBtn = document.querySelector(".game-start");
 const menu = document.querySelector(".start-menu");
-let message = document.querySelector(".winning-message");
+const message = document.querySelector(".winning-message");
+
 let playerX = "X";
 let playerO = "O";
 let gamesPlayed = 0;
@@ -13,13 +15,26 @@ let moves = 0;
 let gameOver = false;
 let teamX = 0;
 let teamO = 0;
-let backgroundColor = "aaa";
 
-// startButton.addEventListener("click", () => {
-//     menu.innerHTML = "gameBoard";
-// })
+appear();
+// homepage function
+// title and start button become visible when page loads
+function appear() {
+    title.style.opacity = "1";
+    title.style.transition = "5s";
+    startBtn.style.transform = "scale(1)";
+    startBtn.style.transition = "5s";
+}
 
+//shift menu up
+function shiftUp() {
+    menu.style.position = "absolute";
+    menu.style.animation = "menu 1s";
+    menu.style.top = "5%";
+    startBtn.style.display = "none";
+}
 
+startBtn.addEventListener('click', startGame);
 
 // function to handle player moves
 function handleClick(e) {
@@ -27,21 +42,17 @@ function handleClick(e) {
     if (e.target.textContent !== "") return;
 
     e.target.textContent = currentPlayer;
-    e.target.backgroundColor = backgroundColor;
     moves++;
 
     if (checkForWinner()) {
         gameOver = true;
         message.textContent = 'Team ' + currentPlayer + ' Wins!';
         updateScore();
-        // restart();
     } else if (moves === 9) {
         gameOver = true;
         message.textContent = "It's A Tie!";
-        // restart();
     } else {
         currentPlayer = currentPlayer === playerX ? playerO : playerX;
-        backgroundColor = backgroundColor === "#282727" ? "#8b0000" : "#282727";
     }
 }
 
@@ -63,13 +74,11 @@ function checkForWinner() {
 
 // add event listeners to each cell
 function startGame() {
+    menu.style.display = "none";
     gameBoard.forEach((square) => {
         square.addEventListener("click", handleClick);
     });
-    // playerX.style.backgroundColor = "#282727"
 };
-
-startGame();
 
 // function to display score
 function updateScore() {
@@ -102,6 +111,5 @@ restartBtn.addEventListener("click", restart);
 //FUNCTION TO SET DIFFICULTY
 //SET GAME ROUND TO 5
 //MODAL FOR GAMEWINNER
-//START BUTTON
 //ADD PLAYER INPUT NAME
 //ADD AI CHOICE
