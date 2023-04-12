@@ -25,6 +25,51 @@ body {
     height: 100%;
 }
 
+/* HOME PAGE */
+
+.start-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 5rem;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: painted-lady;
+    width: 100%;
+    font-size: 5rem;
+}
+
+.game-start {
+    transform: scale(0);
+    border-radius: 5px;
+    width: 8rem;
+    height: 2.6rem;
+    cursor: pointer;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, .5);
+    background-color: whitesmoke;
+    outline: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1em;
+    color: black;
+}
+
+@keyframes start-menu {
+    from {
+        top: 40%;
+    }
+
+    to {
+        top: 5%;
+    }
+}
+
 /* HEADER */
 
 header {
