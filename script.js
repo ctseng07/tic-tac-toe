@@ -49,7 +49,7 @@ function handleClick(e) {
         message.textContent = 'Team ' + currentPlayer + ' Wins!';
         updateScore();
         gamesPlayed++;
-        if (gamesPlayed >= 5) {
+        if (gamesPlayed >= 1) {
             stopGame();
         } else {
             restartGame();
@@ -90,7 +90,23 @@ function stopGame() {
     gameBoard.forEach((square) => {
         square.removeEventListener("click", handleClick);
     });
-    message.textContent = "Game Over! " + (teamX > teamO ? "X" : "O") + " Wins!";
+    if (teamX >= 1 || teamO >= 1) {
+        // Show the modal if the player has won 5 games
+        const modal = document.getElementById("game-over-modal");
+        modal.style.display = "block";
+
+        // const winnerMessage = document.querySelector(".modal-content");
+        // modal.style.display = "none";
+        // winnerMessage.textContent = (teamX > teamO ? "X" : "O") + " wins!";
+
+
+        // Add an event listener to the "Close" button to hide the modal
+        const closeButton = document.getElementById("close-modal");
+        closeButton.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+        message.textContent = "Game Over! ";
+    }
 }
 
 // function to display score
