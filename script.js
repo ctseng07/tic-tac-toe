@@ -5,6 +5,7 @@ const title = document.querySelector("h1");
 const startBtn = document.querySelector(".game-start");
 const menu = document.querySelector(".start-menu");
 const message = document.querySelector(".winning-message");
+let gameWinner = "";
 
 let playerX = "X";
 let playerO = "O";
@@ -86,26 +87,33 @@ function startGame() {
     });
 };
 
+
 function stopGame() {
     gameBoard.forEach((square) => {
         square.removeEventListener("click", handleClick);
     });
-    if (teamX >= 1 || teamO >= 1) {
-        // Show the modal if the player has won 5 games
-        const modal = document.getElementById("game-over-modal");
+    message.textContent = "Game Over! ";
+
+    //MODAL FOR GAMEWINNER
+    let modal = document.querySelector('.modal');
+
+    let modalContent = document.querySelector('#modal-content');
+
+    let close = document.querySelector('.close-modal');
+
+    close.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+    if (teamX >= 1) {
+        gameWinner = `${playerX} Wins!`;
         modal.style.display = "block";
-
-        // const winnerMessage = document.querySelector(".modal-content");
-        // modal.style.display = "none";
-        // winnerMessage.textContent = (teamX > teamO ? "X" : "O") + " wins!";
-
-
-        // Add an event listener to the "Close" button to hide the modal
-        const closeButton = document.getElementById("close-modal");
-        closeButton.addEventListener("click", () => {
-            modal.style.display = "none";
-        });
-        message.textContent = "Game Over! ";
+        modalContent.insertAdjacentHTML("beforeend", `${gameWinner}`);
+    } else {
+        if (teamO >= 1) {
+            gameWinner = `You Lose! ${playerO} Wins!`;
+            modal.style.display = "block";
+            modalContent.insertAdjacentHTML("beforeend", `${gameWinner}`);
+        }
     }
 }
 
@@ -141,8 +149,5 @@ restartBtn.addEventListener("click", restart);
 //PLAYER CHOICE SET BACKGROUND COLOR
 //FUNCTION TO SET DIFFICULTY
 //SET GAME ROUND TO 5
-
-
-//MODAL FOR GAMEWINNER
 //ADD PLAYER INPUT NAME
 //ADD AI CHOICE
