@@ -23,16 +23,16 @@ function appear() {
     title.style.opacity = "1";
     title.style.transition = "5s";
     startBtn.style.transform = "scale(1)";
-    startBtn.style.transition = "5s";
+    startBtn.style.transition = "3s";
 }
 
 //shift menu up
-function shiftUp() {
-    menu.style.position = "absolute";
-    menu.style.animation = "menu 1s";
-    menu.style.top = "5%";
-    startBtn.style.display = "none";
-}
+// function shiftUp() {
+//     menu.style.position = "absolute";
+//     menu.style.animation = "menu 1s";
+//     menu.style.top = "5%";
+//     startBtn.style.display = "none";
+// }
 
 startBtn.addEventListener('click', startGame);
 
@@ -48,6 +48,12 @@ function handleClick(e) {
         gameOver = true;
         message.textContent = 'Team ' + currentPlayer + ' Wins!';
         updateScore();
+        gamesPlayed++;
+        if (gamesPlayed >= 5) {
+            stopGame();
+        } else {
+            restartGame();
+        }
     } else if (moves === 9) {
         gameOver = true;
         message.textContent = "It's A Tie!";
@@ -80,6 +86,13 @@ function startGame() {
     });
 };
 
+function stopGame() {
+    gameBoard.forEach((square) => {
+        square.removeEventListener("click", handleClick);
+    });
+    message.textContent = "Game Over! " + (teamX > teamO ? "X" : "O") + " Wins!";
+}
+
 // function to display score
 function updateScore() {
     if (currentPlayer === playerX) {
@@ -90,6 +103,8 @@ function updateScore() {
         document.getElementById('computer').innerText = teamO;
     }
 };
+
+// game stop after 5 wins
 
 // function to restart game after win
 function restart() {
@@ -110,6 +125,8 @@ restartBtn.addEventListener("click", restart);
 //PLAYER CHOICE SET BACKGROUND COLOR
 //FUNCTION TO SET DIFFICULTY
 //SET GAME ROUND TO 5
+
+
 //MODAL FOR GAMEWINNER
 //ADD PLAYER INPUT NAME
 //ADD AI CHOICE
