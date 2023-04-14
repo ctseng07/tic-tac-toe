@@ -1,10 +1,11 @@
 // initialize game variables
 const gameBoard = document.querySelectorAll(".board");
 const restartBtn = document.querySelector(".restartBtn");
-const title = document.querySelector("h1");
+const title = document.querySelector(".title");
 const startBtn = document.querySelector(".game-start");
 const menu = document.querySelector(".start-menu");
 const message = document.querySelector(".winning-message");
+const newGame = document.querySelector(".newGame");
 let gameWinner = "";
 
 let playerX = "X";
@@ -49,6 +50,7 @@ function handleClick(e) {
         gameOver = true;
         message.textContent = 'Team ' + currentPlayer + ' Wins!';
         updateScore();
+        // game stop after 5 wins
         gamesPlayed++;
         if (gamesPlayed >= 1) {
             stopGame();
@@ -87,7 +89,6 @@ function startGame() {
     });
 };
 
-
 function stopGame() {
     gameBoard.forEach((square) => {
         square.removeEventListener("click", handleClick);
@@ -104,18 +105,25 @@ function stopGame() {
     close.addEventListener("click", () => {
         modal.style.display = "none";
     });
+
     if (teamX >= 1) {
-        gameWinner = `${playerX} Wins!`;
+        gameWinner = `<ul>${playerX} Wins!</ul><ul>Congratulations</ul>`;
         modal.style.display = "block";
         modalContent.insertAdjacentHTML("beforeend", `${gameWinner}`);
     } else {
         if (teamO >= 1) {
-            gameWinner = `You Lose! ${playerO} Wins!`;
+            gameWinner = `<ul>${playerO} Wins</ul><ul>You Lose!</ul>`;
             modal.style.display = "block";
             modalContent.insertAdjacentHTML("beforeend", `${gameWinner}`);
         }
     }
 }
+
+/* restart game */
+function refreshPage() {
+    window.location.reload(true);
+}
+newGame.addEventListener('click', refreshPage);
 
 // function to display score
 function updateScore() {
@@ -127,8 +135,6 @@ function updateScore() {
         document.getElementById('computer').innerText = teamO;
     }
 };
-
-// game stop after 5 wins
 
 // function to restart game after win
 function restart() {
