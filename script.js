@@ -5,7 +5,9 @@ const title = document.querySelector(".title");
 const startBtn = document.querySelector(".game-start");
 const menu = document.querySelector(".start-menu");
 const message = document.querySelector(".winning-message");
-const newGame = document.querySelector(".newGame");
+// const newGame = document.querySelector(".newGame");
+const xScoreBox = document.querySelector(".Xscore-card");
+const oScoreBox = document.querySelector("Oscore-card");
 let gameWinner = "";
 
 let playerX = "X";
@@ -52,10 +54,10 @@ function handleClick(e) {
         updateScore();
         // game stop after 5 wins
         gamesPlayed++;
-        if (gamesPlayed >= 1) {
+        if (gamesPlayed >= 5) {
             stopGame();
         } else {
-            restartGame();
+            restart();
         }
     } else if (moves === 9) {
         gameOver = true;
@@ -87,6 +89,7 @@ function startGame() {
     gameBoard.forEach((square) => {
         square.addEventListener("click", handleClick);
     });
+    restartBtn.style.display = "none";
 };
 
 function stopGame() {
@@ -106,24 +109,25 @@ function stopGame() {
         modal.style.display = "none";
     });
 
-    if (teamX >= 1) {
+    if (teamX >= 5) {
         gameWinner = `<ul>${playerX} Wins!</ul><ul>Congratulations</ul>`;
         modal.style.display = "block";
         modalContent.insertAdjacentHTML("beforeend", `${gameWinner}`);
     } else {
-        if (teamO >= 1) {
+        if (teamO >= 5) {
             gameWinner = `<ul>${playerO} Wins</ul><ul>You Lose!</ul>`;
             modal.style.display = "block";
             modalContent.insertAdjacentHTML("beforeend", `${gameWinner}`);
         }
     }
+    restartBtn.style.display = "block";
 }
 
-/* restart game */
+// restart game //
 function refreshPage() {
     window.location.reload(true);
 }
-newGame.addEventListener('click', refreshPage);
+// newGame.addEventListener('click', refreshPage);
 
 // function to display score
 function updateScore() {
@@ -146,14 +150,27 @@ function restart() {
         moves = 0;
         gameOver = false;
         message.textContent = "";
-    }, 100);
+    }, 500);
 }
 
-restartBtn.addEventListener("click", restart);
+restartBtn.addEventListener("click", refreshPage);
 
 
 //PLAYER CHOICE SET BACKGROUND COLOR
+// function updateScoreboard() {
+//     playerX.textContent = teamX;
+//     playerO.textContent = teamO;
+
+//     // Highlight the score box for the current player
+//     if (currentPlayer === playerX) {
+//         xScoreBox.classList.add('score-box-highlight');
+//         oScoreBox.classList.remove('score-box-highlight');
+//     } else {
+//         oScoreBox.classList.add('score-box-highlight');
+//         xScoreBox.classList.remove('score-box-highlight');
+//     }
+// }
+// updateScoreboard();
 //FUNCTION TO SET DIFFICULTY
-//SET GAME ROUND TO 5
 //ADD PLAYER INPUT NAME
 //ADD AI CHOICE

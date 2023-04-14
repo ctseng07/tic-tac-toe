@@ -238,9 +238,15 @@ header {
     border-radius: 0 0 10px 10px;
 }
 
-.score-card {
+.Xscore-card,
+.Oscore-card {
     box-shadow: 0 10px 10px rgba(0, 0, 0, .5);
     border-radius: 10px;
+}
+
+.score-box-highlight {
+    background-color: #ffc107;
+    color: #000;
 }
 
 /* MODAL POP UP AFTER WIN */
