@@ -162,7 +162,7 @@ header {
 
 /* PLAY AGAIN BUTTON */
 .restartBtn {
-    background-color: rgb(208, 208, 208);
+    background-color: whitesmoke;
     cursor: pointer;
     border-radius: 10px;
     width: 11rem;
@@ -170,6 +170,10 @@ header {
     font-size: 1rem;
     font-weight: bold;
     box-shadow: 0 10px 10px rgba(0, 0, 0, .5);
+}
+
+.restartBtn:hover {
+    background-color: rgb(208, 208, 208);
 }
 
 .restart {
@@ -215,7 +219,7 @@ header {
     display: flex;
     justify-content: center;
     font-size: 2em;
-    background-color: blue;
+    background-color: darkred;
     border-top: 2px solid black;
 }
 
@@ -267,8 +271,24 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column-reverse;
     height: 30vh;
     background-color: #fff;
+    font-size: 3rem;
+    gap: 25px;
+}
+
+.newGame {
+    background-color: whitesmoke;
+    height: 3em;
+    width: 10em;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.newGame:hover {
+    background-color: rgb(208, 208, 208);
 }
 
 .close-modal {
@@ -278,4 +298,8 @@ header {
     background-color: #fff;
     cursor: pointer;
 
+}
+
+ul {
+    background-color: #fff;
 }
