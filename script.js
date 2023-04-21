@@ -1,11 +1,15 @@
 // initialize game variables
 const gameBoard = document.querySelectorAll(".board");
 const restartBtn = document.querySelector(".restartBtn");
+
+const menu = document.querySelector(".start-menu");
 const title = document.querySelector(".title");
 const startBtn = document.querySelector(".game-start");
-const menu = document.querySelector(".start-menu");
+
 const message = document.querySelector(".winning-message");
-const player1 = document.querySelector(".vsCompuetr");
+
+const playerChoice = document.querySelector(".playerChoice");
+const player1 = document.querySelector(".vsComputer");
 const player2 = document.querySelector(".vsPlayer");
 
 // const newGame = document.querySelector(".newGame");
@@ -32,6 +36,14 @@ function appear() {
     title.style.transition = "5s";
     startBtn.style.transform = "scale(1)";
     startBtn.style.transition = "3s";
+}
+
+startBtn.addEventListener("click", userChoice);
+
+function userChoice() {
+    menu.style.display = "none";
+    player1.style.display = "block";
+    player2.style.display = "block";
 }
 
 //shift menu up
