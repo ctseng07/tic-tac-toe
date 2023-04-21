@@ -5,6 +5,9 @@ const title = document.querySelector(".title");
 const startBtn = document.querySelector(".game-start");
 const menu = document.querySelector(".start-menu");
 const message = document.querySelector(".winning-message");
+const player1 = document.querySelector(".vsCompuetr");
+const player2 = document.querySelector(".vsPlayer");
+
 // const newGame = document.querySelector(".newGame");
 const xScoreBox = document.querySelector(".Xscore-card");
 const oScoreBox = document.querySelector("Oscore-card");
@@ -13,6 +16,7 @@ let gameWinner = "";
 let playerX = "X";
 let playerO = "O";
 let gamesPlayed = 0;
+let compDifficulty = "easy";
 
 let currentPlayer = playerX;
 let moves = 0;
@@ -38,7 +42,7 @@ function appear() {
 //     startBtn.style.display = "none";
 // }
 
-startBtn.addEventListener('click', startGame);
+player2.addEventListener('click', startGame);
 
 // function to handle player moves
 function handleClick(e) {
@@ -150,7 +154,7 @@ function restart() {
         moves = 0;
         gameOver = false;
         message.textContent = "";
-    }, 500);
+    }, 600);
 }
 
 restartBtn.addEventListener("click", refreshPage);
@@ -172,5 +176,13 @@ restartBtn.addEventListener("click", refreshPage);
 // }
 // updateScoreboard();
 //FUNCTION TO SET DIFFICULTY
+
+function getMove() {
+    if (compDifficulty === "easy") {
+        // Choose a random empty cell
+        const emptyCells = getEmptyCells()
+    }
+}
 //ADD PLAYER INPUT NAME
+
 //ADD AI CHOICE
