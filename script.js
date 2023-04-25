@@ -11,6 +11,8 @@ const playerChoice = document.querySelector(".playerChoice");
 const computer = document.querySelector(".vsComputer");
 const player = document.querySelector(".vsPlayer");
 
+const modalChoice = document.querySelector(".choiceModal");
+const main = document.querySelector(".main");
 // const newGame = document.querySelector(".newGame");
 const xScoreBox = document.querySelector(".Xscore-card");
 const oScoreBox = document.querySelector("Oscore-card");
@@ -39,23 +41,17 @@ function appear() {
     player.style.transition = "3s";
 }
 
-player.addEventListener("click", startGame);
+player.addEventListener("click", againstPlayer);
 
-// function userChoice() {
-//     menu.style.display = "none";
-//     player1.style.display = "block";
-//     player2.style.display = "block";
-// }
 
-//shift menu up
-// function shiftUp() {
-//     menu.style.position = "absolute";
-//     menu.style.animation = "menu 1s";
-//     menu.style.top = "5%";
-//     startBtn.style.display = "none";
-// }
 
-// player2.addEventListener('click', startGame);
+function againstPlayer() {
+    menu.style.display = "none";
+    modalChoice.style.display = "block"
+    main.style.display = "none";
+}
+
+
 
 // function to handle player moves
 function handleClick(e) {
@@ -79,6 +75,7 @@ function handleClick(e) {
     } else if (moves === 9) {
         gameOver = true;
         message.textContent = "It's A Tie!";
+        restart();
     } else {
         currentPlayer = currentPlayer === playerX ? playerO : playerX;
     }

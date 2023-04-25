@@ -84,6 +84,32 @@ body {
     color: black;
 }
 
+
+.choiceModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.selection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+}
+
+.startBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#player1-name-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* HEADER */
 
 header {
