@@ -4,13 +4,12 @@ const restartBtn = document.querySelector(".restartBtn");
 
 const menu = document.querySelector(".start-menu");
 const title = document.querySelector(".title");
-const startBtn = document.querySelector(".game-start");
 
 const message = document.querySelector(".winning-message");
 
 const playerChoice = document.querySelector(".playerChoice");
-const player1 = document.querySelector(".vsComputer");
-const player2 = document.querySelector(".vsPlayer");
+const computer = document.querySelector(".vsComputer");
+const player = document.querySelector(".vsPlayer");
 
 // const newGame = document.querySelector(".newGame");
 const xScoreBox = document.querySelector(".Xscore-card");
@@ -34,17 +33,19 @@ appear();
 function appear() {
     title.style.opacity = "1";
     title.style.transition = "5s";
-    startBtn.style.transform = "scale(1)";
-    startBtn.style.transition = "3s";
+    computer.style.transform = "scale(1)";
+    computer.style.transition = "3s";
+    player.style.transform = "scale(1)";
+    player.style.transition = "3s";
 }
 
-startBtn.addEventListener("click", userChoice);
+player.addEventListener("click", startGame);
 
-function userChoice() {
-    menu.style.display = "none";
-    player1.style.display = "block";
-    player2.style.display = "block";
-}
+// function userChoice() {
+//     menu.style.display = "none";
+//     player1.style.display = "block";
+//     player2.style.display = "block";
+// }
 
 //shift menu up
 // function shiftUp() {
@@ -54,7 +55,7 @@ function userChoice() {
 //     startBtn.style.display = "none";
 // }
 
-player2.addEventListener('click', startGame);
+// player2.addEventListener('click', startGame);
 
 // function to handle player moves
 function handleClick(e) {

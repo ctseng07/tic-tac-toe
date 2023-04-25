@@ -35,7 +35,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    gap: 5rem;
+    gap: 3rem;
 }
 
 .title {
@@ -47,7 +47,14 @@ body {
     font-size: 5rem;
 }
 
-.game-start {
+.playerChoice {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+
+.vsPlayer {
     transform: scale(0);
     border-radius: 5px;
     width: 8rem;
@@ -62,14 +69,19 @@ body {
     color: black;
 }
 
-@keyframes start-menu {
-    from {
-        top: 40%;
-    }
-
-    to {
-        top: 5%;
-    }
+.vsComputer {
+    transform: scale(0);
+    border-radius: 5px;
+    width: 8rem;
+    height: 2.6rem;
+    cursor: pointer;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, .5);
+    background-color: whitesmoke;
+    outline: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1em;
+    color: black;
 }
 
 /* HEADER */
