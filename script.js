@@ -11,7 +11,7 @@ const playerChoice = document.querySelector(".playerChoice");
 const computer = document.querySelector(".vsComputer");
 const player = document.querySelector(".vsPlayer");
 
-const modalChoice = document.querySelector(".choiceModal");
+const modalChoice = document.querySelector(".a3");
 const main = document.querySelector(".main");
 // const newGame = document.querySelector(".newGame");
 const xScoreBox = document.querySelector(".Xscore-card");
@@ -47,7 +47,7 @@ player.addEventListener("click", againstPlayer);
 
 function againstPlayer() {
     menu.style.display = "none";
-    modalChoice.style.display = "block"
+    modalChoice.style.display = "block";
     main.style.display = "none";
 }
 
