@@ -7,13 +7,15 @@ const title = document.querySelector(".title");
 
 const message = document.querySelector(".winning-message");
 
-const playerChoice = document.querySelector(".playerChoice");
 const computer = document.querySelector(".vsComputer");
 const player = document.querySelector(".vsPlayer");
 
+const player1NameElem = document.querySelector(".player");
+const player2NameElem = document.querySelector(".computer");
+
 const modalChoice = document.querySelector(".selectionWrapper");
 const main = document.querySelector(".main");
-// const newGame = document.querySelector(".newGame");
+
 const xScoreBox = document.querySelector(".Xscore-card");
 const oScoreBox = document.querySelector("Oscore-card");
 let gameWinner = "";
@@ -28,6 +30,8 @@ let moves = 0;
 let gameOver = false;
 let teamX = 0;
 let teamO = 0;
+
+let playerChoice;
 
 appear();
 // homepage function
@@ -50,6 +54,10 @@ function againstPlayer() {
     main.style.display = "none";
 }
 
+function playPlayer() {
+    player1NameElem.textContent = "";
+    player2NameElem.textContent = "";
+}
 
 
 // function to handle player moves
