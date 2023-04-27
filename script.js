@@ -1,7 +1,7 @@
 // initialize game variables
 const gameBoard = document.querySelectorAll(".board");
 const restartBtn = document.querySelector(".restartBtn");
-
+const startBtn = document.querySelector(".startBtn")
 const menu = document.querySelector(".start-menu");
 const title = document.querySelector(".title");
 
@@ -11,7 +11,7 @@ const playerChoice = document.querySelector(".playerChoice");
 const computer = document.querySelector(".vsComputer");
 const player = document.querySelector(".vsPlayer");
 
-const modalChoice = document.querySelector(".a3");
+const modalChoice = document.querySelector(".selectionWrapper");
 const main = document.querySelector(".main");
 // const newGame = document.querySelector(".newGame");
 const xScoreBox = document.querySelector(".Xscore-card");
@@ -42,7 +42,6 @@ function appear() {
 }
 
 player.addEventListener("click", againstPlayer);
-
 
 
 function againstPlayer() {
@@ -100,9 +99,12 @@ function checkForWinner() {
 // add event listeners to each cell
 function startGame() {
     menu.style.display = "none";
+    modalChoice.style.display = "none";
+    startBtn.style.display = "none";
     gameBoard.forEach((square) => {
         square.addEventListener("click", handleClick);
     });
+    main.style.display = "block";
     restartBtn.style.display = "none";
 };
 
@@ -167,8 +169,8 @@ function restart() {
     }, 600);
 }
 
+startBtn.addEventListener('click', startGame);
 restartBtn.addEventListener("click", refreshPage);
-
 
 //PLAYER CHOICE SET BACKGROUND COLOR
 // function updateScoreboard() {
