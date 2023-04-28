@@ -7,6 +7,8 @@ const title = document.querySelector(".title");
 
 const message = document.querySelector(".winning-message");
 
+
+
 const computer = document.querySelector(".vsComputer");
 const player = document.querySelector(".vsPlayer");
 
@@ -20,18 +22,35 @@ const xScoreBox = document.querySelector(".Xscore-card");
 const oScoreBox = document.querySelector("Oscore-card");
 let gameWinner = "";
 
-let playerX = "X";
-let playerO = "O";
+
+let playerX = {
+    symbol: "X",
+    name: ""
+
+}
+let playerO = {
+    symbol: "O",
+    name: ""
+
+}
+
+
+// let playerX = "X";
+// let playerO = "O";
 let gamesPlayed = 0;
 let compDifficulty = "easy";
 
-let currentPlayer = playerX;
 let moves = 0;
 let gameOver = false;
 let teamX = 0;
 let teamO = 0;
 
-let playerChoice;
+let player1 = document.querySelector("#player1-name-input");
+let player2 = document.querySelector("#player2-name-input");
+
+let currentPlayer = playerX
+
+// let currentPlayer = playerX;
 
 appear();
 // homepage function
@@ -54,10 +73,16 @@ function againstPlayer() {
     main.style.display = "none";
 }
 
-function playPlayer() {
-    player1NameElem.textContent = "";
-    player2NameElem.textContent = "";
+startBtn.addEventListener("click", nameInput);
+
+function nameInput() {
+    playerX.name = player1.value === "" ? "Team X" : player1.value;
+    playerO.name = player2.value === "" ? "Team O" : player2.value;
+    player1NameElem.textContent = player1.value === "" ? "Team X" : player1.value;
+    player2NameElem.textContent = player2.value === "" ? "Team O" : player2.value;
 }
+
+console.log(nameInput);
 
 
 // function to handle player moves
@@ -65,12 +90,13 @@ function handleClick(e) {
     if (gameOver) return;
     if (e.target.textContent !== "") return;
 
-    e.target.textContent = currentPlayer;
+    e.target.textContent = currentPlayer.symbol;
     moves++;
 
     if (checkForWinner()) {
         gameOver = true;
-        message.textContent = 'Team ' + currentPlayer + ' Wins!';
+        message.textContent = `${currentPlayer.name} Wins!`;
+        console.log(message);
         updateScore();
         // game stop after 5 wins
         gamesPlayed++;
@@ -99,7 +125,7 @@ function checkForWinner() {
 
     return winningCombos.some((combo) => {
         return combo.every((index) => {
-            return gameBoard[index].textContent === currentPlayer;
+            return gameBoard[index].textContent === currentPlayer.symbol;
         });
     });
 }
@@ -134,12 +160,12 @@ function stopGame() {
     });
 
     if (teamX >= 5) {
-        gameWinner = `<ul>${playerX} Wins!</ul><ul>Congratulations</ul>`;
+        gameWinner = `<ul>${player1.value} Wins!</ul><ul>Congratulations</ul>`;
         modal.style.display = "block";
         modalContent.insertAdjacentHTML("beforeend", `${gameWinner}`);
     } else {
         if (teamO >= 5) {
-            gameWinner = `<ul>${playerO} Wins</ul><ul>You Lose!</ul>`;
+            gameWinner = `<ul>${player2.value} Wins</ul><ul>You Lose!</ul>`;
             modal.style.display = "block";
             modalContent.insertAdjacentHTML("beforeend", `${gameWinner}`);
         }
@@ -174,7 +200,7 @@ function restart() {
         moves = 0;
         gameOver = false;
         message.textContent = "";
-    }, 600);
+    }, 800);
 }
 
 startBtn.addEventListener('click', startGame);
