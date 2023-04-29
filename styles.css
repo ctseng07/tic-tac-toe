@@ -47,7 +47,7 @@ body {
     font-size: 5rem;
 }
 
-.playerChoice {
+.choiceBtn {
     display: flex;
     align-items: center;
     gap: 3rem;
@@ -92,12 +92,17 @@ body {
     justify-content: center;
 }
 
-.a3 {
-    gap: 3vh;
-    margin-bottom: 3vh;
+.chooseComputer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.selection {
+
+.selection,
+.compSelection {
     display: flex;
     gap: 1vh;
     margin-bottom: 3vh;
@@ -115,7 +120,8 @@ input {
     border-radius: 15px;
 }
 
-.startBtn {
+.startBtn,
+.compStart {
     background-color: whitesmoke;
     border-radius: 5px;
     width: 8rem;
@@ -127,6 +133,21 @@ input {
     font-weight: bold;
     font-size: 1em;
     color: black;
+}
+
+.comp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    background-color: darkred;
+    height: 1.9rem;
+    width: 10rem;
+    text-align: center;
+    border-radius: 15px;
+    font-size: 1em;
+    border: 1px solid black;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, .5);
 }
 
 /* HEADER */

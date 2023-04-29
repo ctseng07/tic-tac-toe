@@ -1,13 +1,12 @@
 // initialize game variables
 const gameBoard = document.querySelectorAll(".board");
 const restartBtn = document.querySelector(".restartBtn");
-const startBtn = document.querySelector(".startBtn")
+const startBtn = document.querySelector(".startBtn");
+const compStart = document.querySelector(".compStart");
 const menu = document.querySelector(".start-menu");
 const title = document.querySelector(".title");
 
 const message = document.querySelector(".winning-message");
-
-
 
 const computer = document.querySelector(".vsComputer");
 const player = document.querySelector(".vsPlayer");
@@ -15,18 +14,20 @@ const player = document.querySelector(".vsPlayer");
 const player1NameElem = document.querySelector(".player");
 const player2NameElem = document.querySelector(".computer");
 
-const modalChoice = document.querySelector(".selectionWrapper");
+const vsPlayer = document.querySelector(".choosePlayer");
+const vsComputer = document.querySelector(".chooseComputer");
 const main = document.querySelector(".main");
 
-const xScoreBox = document.querySelector(".Xscore-card");
-const oScoreBox = document.querySelector("Oscore-card");
+let player1 = document.querySelector("#player1-name-input");
+let comp1 = document.querySelector("#comp-name-input");
+let player2 = document.querySelector("#player2-name-input");
+
 let gameWinner = "";
 
 
 let playerX = {
     symbol: "X",
     name: ""
-
 }
 let playerO = {
     symbol: "O",
@@ -34,9 +35,6 @@ let playerO = {
 
 }
 
-
-// let playerX = "X";
-// let playerO = "O";
 let gamesPlayed = 0;
 let compDifficulty = "easy";
 
@@ -44,9 +42,6 @@ let moves = 0;
 let gameOver = false;
 let teamX = 0;
 let teamO = 0;
-
-let player1 = document.querySelector("#player1-name-input");
-let player2 = document.querySelector("#player2-name-input");
 
 let currentPlayer = playerX
 
@@ -66,23 +61,43 @@ function appear() {
 
 player.addEventListener("click", againstPlayer);
 
+computer.addEventListener("click", againstComputer);
+
 
 function againstPlayer() {
     menu.style.display = "none";
-    modalChoice.style.display = "block";
+    vsComputer.style.display = "none";
     main.style.display = "none";
+    vsPlayer.style.display = "block";
 }
 
-startBtn.addEventListener("click", nameInput);
+function againstComputer() {
+    menu.style.display = "none";
+    vsPlayer.style.display = "none";
+    main.style.display = "none";
+    vsComputer.style.display = "block";
+}
 
+
+
+startBtn.addEventListener("click", nameInput);
+compStart.addEventListener("click", nameInputComp);
+startBtn.addEventListener('click', startGame);
+compStart.addEventListener('click', startGame);
+
+//ADD PLAYER INPUT NAME
 function nameInput() {
     playerX.name = player1.value === "" ? "Team X" : player1.value;
     playerO.name = player2.value === "" ? "Team O" : player2.value;
     player1NameElem.textContent = player1.value === "" ? "Team X" : player1.value;
     player2NameElem.textContent = player2.value === "" ? "Team O" : player2.value;
 }
-
-console.log(nameInput);
+function nameInputComp() {
+    playerX.name = comp1.value === "" ? "Team X" : comp1.value;
+    playerO.name = player2.value === "" ? "Team O" : player2.value;
+    player1NameElem.textContent = comp1.value === "" ? "Team X" : comp1.value;
+    console.log("click");
+}
 
 
 // function to handle player moves
@@ -100,7 +115,7 @@ function handleClick(e) {
         updateScore();
         // game stop after 5 wins
         gamesPlayed++;
-        if (gamesPlayed >= 5) {
+        if (gamesPlayed >= 2) {
             stopGame();
         } else {
             restart();
@@ -133,8 +148,10 @@ function checkForWinner() {
 // add event listeners to each cell
 function startGame() {
     menu.style.display = "none";
-    modalChoice.style.display = "none";
+    vsPlayer.style.display = "none";
+    vsComputer.style.display = "none";
     startBtn.style.display = "none";
+    compStart.style.display = "none";
     gameBoard.forEach((square) => {
         square.addEventListener("click", handleClick);
     });
@@ -159,12 +176,12 @@ function stopGame() {
         modal.style.display = "none";
     });
 
-    if (teamX >= 5) {
+    if (teamX >= 2) {
         gameWinner = `<ul>${player1.value} Wins!</ul><ul>Congratulations</ul>`;
         modal.style.display = "block";
         modalContent.insertAdjacentHTML("beforeend", `${gameWinner}`);
     } else {
-        if (teamO >= 5) {
+        if (teamO >= 2) {
             gameWinner = `<ul>${player2.value} Wins</ul><ul>You Lose!</ul>`;
             modal.style.display = "block";
             modalContent.insertAdjacentHTML("beforeend", `${gameWinner}`);
@@ -177,7 +194,8 @@ function stopGame() {
 function refreshPage() {
     window.location.reload(true);
 }
-// newGame.addEventListener('click', refreshPage);
+
+restartBtn.addEventListener("click", refreshPage);
 
 // function to display score
 function updateScore() {
@@ -203,24 +221,6 @@ function restart() {
     }, 800);
 }
 
-startBtn.addEventListener('click', startGame);
-restartBtn.addEventListener("click", refreshPage);
-
-//PLAYER CHOICE SET BACKGROUND COLOR
-// function updateScoreboard() {
-//     playerX.textContent = teamX;
-//     playerO.textContent = teamO;
-
-//     // Highlight the score box for the current player
-//     if (currentPlayer === playerX) {
-//         xScoreBox.classList.add('score-box-highlight');
-//         oScoreBox.classList.remove('score-box-highlight');
-//     } else {
-//         oScoreBox.classList.add('score-box-highlight');
-//         xScoreBox.classList.remove('score-box-highlight');
-//     }
-// }
-// updateScoreboard();
 //FUNCTION TO SET DIFFICULTY
 
 function getMove() {
@@ -229,6 +229,5 @@ function getMove() {
         const emptyCells = getEmptyCells()
     }
 }
-//ADD PLAYER INPUT NAME
 
 //ADD AI CHOICE

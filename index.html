@@ -14,24 +14,39 @@
     <div class="start-menu">
         <h1 class="title">Tic Tac Toe</h1>
         <h3>VS</h3>
-        <div class="playerChoice">
+        <div class="choiceBtn">
             <button class="vsComputer">Computer</button>
             <h3>or</h3>
             <button class="vsPlayer">Player</button>
         </div>
     </div>
-    <div class="choosePlayer">
-        <div class="selectionWrapper">
-            <div class="selection">
-                <h3>Player 1</h3>
-                <input class="name-input" placeholder="Player Name" id="player1-name-input" />
+    <div class="userChoice">
+        <div class="choosePlayer">
+            <div class="playerSelection">
+                <div class="selection">
+                    <h3>Player 1</h3>
+                    <input class="name-input" placeholder="Player Name" id="player1-name-input" />
+                </div>
+                <div class="selection">
+                    <h3>Player 2</h3>
+                    <input class="name-input" placeholder="Player Name" id="player2-name-input" />
+                </div>
             </div>
-            <div class="selection">
-                <h3>Player 2</h3>
-                <input class="name-input" placeholder="Player Name" id="player2-name-input" />
-            </div>
+            <button class="startBtn">Start Game</button>
         </div>
-        <button class="startBtn">Start Game</button>
+        <div class="chooseComputer">
+            <div class="computerSelection">
+                <div class="selection">
+                    <h3>Player 1</h3>
+                    <input class="name-input" placeholder="Player Name" id="comp-name-input" />
+                </div>
+                <div class="selection">
+                    <h3>Computer</h3>
+                    <div class="comp">Team O</div>
+                </div>
+            </div>
+            <button class="compStart">Start Game</button>
+        </div>
     </div>
     <div class="main">
         <div class="game-title">Tic Tac Toe</div>
